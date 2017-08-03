@@ -8,6 +8,7 @@
     <owners>dan_j_thompson@hotmail.com</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <developmentDependency>true</developmentDependency>
+    <projectUrl>https://github.com/jazzdelightsme/UnofficialT4BuildTasks</projectUrl>
     <summary>UNOFFICIAL. Contains files necessary to perform T4 tasks during a build.</summary>
     <description>The Text Template Transformation Toolkit (T4) is a powerful tool, but has to be run manually. This package contains the files (a couple DLLs and a .targets file) necessary to perform T4 tasks during a build. UNOFFICIAL: This package is not produced by Microsoft/the T4 team. If you think this is useful, please encourage them to produce an official package.</description>
     <releaseNotes>Added support for VS2017 while retaining support for VS2015 and VS2013.</releaseNotes>
