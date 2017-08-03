@@ -1,0 +1,29 @@
+Greetings gentle Maintainer.
+
+(Oh, it's you again--you've forgotten everything about this since you hacked on
+it last year, didn't you?)
+
+You can build the package by running make.ps1 in this same directory.
+
+Requirements to build:
+  * NuGet.exe must be on your path.
+
+When you run make.ps1, NuGet.exe will use the content in the .\Package
+directory and the .nuspec file in this directory to build a .nupkg file (which
+is really just a .zip file with a particular layout). You can find the
+generated package in the .\Output directory, which you can then copy to or
+upload to a gallery.
+
+Updating:
+
+When VS vNext comes out, you will probably need to update the T4 binaries. You
+should be able to get them by installing the "Visual Studio Modeling SDK" (or
+"Visualization and Modeling" SDK). Or maybe they'll have changed the name by
+then. Anyway, get the new files, and then change the version number in the
+.nuspec file accordingly.
+
+Oh, and you'll also need to rename the .targets file to T4BuildTasks.targets,
+because that's how NuGet likes it (it wants it to match the package name).
+
+Happy hacking.
+
