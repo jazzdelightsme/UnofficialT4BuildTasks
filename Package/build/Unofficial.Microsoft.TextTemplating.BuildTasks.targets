@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" InitialTargets="CheckSupportedVersion">
   <Import Project="$(VisualStudioVersion)\Microsoft.TextTemplating.targets" Condition="Exists('$(VisualStudioVersion)\Microsoft.TextTemplating.targets')" />
+  <Target Name="CheckSupportedVersion">
+    <Error Text="This version of Visual Studio ($(VisualStudioVersion)) is not supported by this version of this package." Condition="!Exists('$(MSBuildThisFileDirectory)\$(VisualStudioVersion)\Microsoft.TextTemplating.targets')" />
+  </Target>
 </Project>
