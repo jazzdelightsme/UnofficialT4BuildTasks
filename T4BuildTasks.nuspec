@@ -3,7 +3,7 @@
   <metadata minClientVersion="2.8">
     <id>Unofficial.Microsoft.TextTemplating.BuildTasks</id>
     <title>T4 Build Tasks</title>
-    <version>15.0.0.1</version>
+    <version>16.0.0.0</version>
     <authors>dan_j_thompson@hotmail.com</authors>
     <owners>dan_j_thompson@hotmail.com</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -11,7 +11,7 @@
     <projectUrl>https://github.com/jazzdelightsme/UnofficialT4BuildTasks</projectUrl>
     <summary>UNOFFICIAL. Contains files necessary to perform T4 tasks during a build.</summary>
     <description>The Text Template Transformation Toolkit (T4) is a powerful tool, but has to be run manually. This package contains the files (a couple DLLs and a .targets file) necessary to perform T4 tasks during a build. UNOFFICIAL: This package is not produced by Microsoft/the T4 team. If you think this is useful, please encourage them to produce an official package.</description>
-    <releaseNotes>Added error message for unsupported versions of VS. (Currently supported versions are VS2017, VS2015, and VS2013.)</releaseNotes>
+    <releaseNotes>Added support for VS2019 (in beta). (Currently supported versions are VS2019 (beta), VS2017, VS2015, and VS2013.)</releaseNotes>
     <tags>T4 Build TextTemplating CodeGen</tags>
   </metadata>
 </package>
