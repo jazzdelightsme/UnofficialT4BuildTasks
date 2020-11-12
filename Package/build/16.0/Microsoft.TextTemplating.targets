@@ -469,9 +469,10 @@
                          TransformDuringBuild
   ================================================================
   Description: if TransformOnBuild is true, this target will be executed as part of the normal 
-  build process, and will transform all of the templates in the project.
+  build process, and will transform all of the templates in the project. BeforeTarget is needed
+  for .Net Core, which overrides BuildDedependsOn causing this to otherwise never get executed.
   -->
-  <Target Name="TransformDuringBuild" Condition=" $(TransformOnBuild)==true">
+  <Target Name="TransformDuringBuild" Condition=" $(TransformOnBuild)==true" BeforeTargets="BeforeBuild">
     <CallTarget Targets="TransformAll"/>
   </Target>
 
