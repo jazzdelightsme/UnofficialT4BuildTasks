@@ -14,7 +14,7 @@ I. Overview
 The Text Template Transformation Toolkit (T4) is a powerful tool, but has to be
 run manually. This package contains the files (a couple DLLs and a .targets
 file) necessary to perform T4 tasks during a build. This version of the package
-supports Visual Studio 2013, 2015, and 2017.
+supports Visual Studio 2013 and later.
 
 II. What to do once you've installed this package
 
@@ -29,7 +29,16 @@ property group.
 
 For example, when you added the Unofficial.Microsoft.TextTemplating.BuildTasks
 package, you should get a line like this added near the bottom of your msbuild
-project file:
+project file (new project style):
+
+    <ItemGroup>
+      <PackageReference Include="Unofficial.Microsoft.TextTemplating.BuildTasks" Version="17.0.0">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+    </ItemGroup>
+
+OR, for previous VS versions, something like this:
 
     <Import Project="..\packages\Unofficial.Microsoft.TextTemplating.BuildTasks.15.0.0.0\build\Unofficial.Microsoft.TextTemplating.BuildTasks.targets" Condition="Exists('..\packages\Microsoft.TextTemplating.BuildTasks.15.0.0.0\build\Unofficial.Microsoft.TextTemplating.BuildTasks.targets')" />
 
@@ -115,12 +124,10 @@ And AnotherSomething.tt might be similar, but include a different ".in" file.
 Here is "FormatTemplate.t4":
 
     <#@ assembly name="System.Core" #>
-    <#@ assembly name="EnvDTE" #>
     <#@ import namespace="System.Linq" #>
     <#@ import namespace="System.Text" #>
     <#@ import namespace="System.IO" #>
     <#@ import namespace="System.Collections.Generic" #>
-    <#@ import namespace="EnvDTE" #>
     <#@ output extension=".myExt" #>
     <#@ parameter type="System.String" name="SolutionDir" #>
     <#@ parameter type="System.String" name="Configuration" #>
@@ -170,6 +177,12 @@ However, the transformation targets will not be run. Therefore, if you depend
 on package restore to pull down the
 Unofficial.Microsoft.TextTemplating.BuildTasks package, you'll need to build
 twice the first time you clone a new directory.
+
+I believe previous VS versions may have required the following directives in
+the example "FormatTemplate.t4" file (but I'm not sure which versions):
+
+    <#@ assembly name="EnvDTE" #>
+    <#@ import namespace="EnvDTE" #>
 
 V. More information
 
